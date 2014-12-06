@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "Kaczkami Studio: EBook Children Kids", :name => "description"}/
+    = stylesheet_link_tag "normalize", "all", "oj_boli", "pygment_trac", "stylesheet"
+    = javascript_include_tag  "all"
+    %title Kaczkami Studio
+    %script{:src => "//netdna.impressjscdn.com/impressjs/0.5.3/js/impress.js"}
+    :javascript
+      impress().init();
+  %body
+    = yield

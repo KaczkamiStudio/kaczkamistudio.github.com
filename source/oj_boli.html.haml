@@ -1,0 +1,20 @@
+#impress.ob_boli
+  #title.step.slide
+  #page_1_1.step.slide
+  #page_1_2.step.slide
+  #page_1_3.step.slide
+  #page_2_1.step.slide
+  #page_2_2.step.slide
+  #page_2_3.step.slide
+  #page_3_1.step.slide
+  #page_3_2.step.slide
+  #page_3_3.step.slide
+.hint
+  %p Use a spacebar or arrow keys to navigate
+%script{:src => "http://netdna.impressjscdn.com/impressjs/0.5.3/js/impress.js"}
+:javascript
+  impress().init();
+:javascript
+  if ("ontouchstart" in document.documentElement) { 
+      document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+  }

@@ -1,0 +1,29 @@
+#header_wrap.outer
+  %header.inner
+    %img#project_logo{:src => "img/kaczkami.png"}/
+    %h1#project_title Kaczkami Studio
+    %h2#project_tagline Książki dla dzieci
+#main_content_wrap.outer
+  %section#main_content.inner
+    %h3 Witamy w Kaczkami Studio!
+    %p Naszą pasją są książki dla dzieci oraz nowe technologie. Wykorzystując doświadczenie z zakresu ilustracji oraz programowania tworzymy ebooki na mobilne urządzenia typu iPad oraz iPhone.
+    %p Pracujemy również na zlecenia tradycyjnych wydawnictw.
+    %p Oto nasza najnowsza książka "Oj, boli". Miłej lektury
+    %a{:href => "/oj_boli.html"}
+      %h4 Oj Boli
+      %img.cover{:src => "img/okladka_oj_boli.png"}/
+    %a{:href => "oj_boli.pdf", :target => "_blank"} Ściągnij PDF
+#footer_wrap.outer
+  %footer.inner
+    %p Strona popełniona przez Mandaryna...
+
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35306022-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
