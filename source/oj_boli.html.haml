@@ -1,4 +1,6 @@
 .swiper-container
+  = link_to '<', '#', class: 'back'
+  = link_to '>', '#', class: 'next'
   .swiper-wrapper
     #page_1_1.swiper-slide
       %audio{ src: 'audios/page_1_1.m4a', preload: 'auto' }
@@ -35,8 +37,15 @@
     var mySwiper = $('.swiper-container').swiper({
       mode:'horizontal',
       loop: true,
+      keyboardControl: true,
       onSwiperCreated: startAudio,
       onSlideChangeStart: stopAudio,
       onSlideChangeEnd: startAudio
+    });
+    $('a.next').click(function(event) {
+      mySwiper.swipeNext();
+    });
+    $('a.back').click(function(event) {
+      mySwiper.swipePrev();
     });
   });

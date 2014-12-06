@@ -1,3 +1,19 @@
+.swiper-container
+  position: relative
+  .back
+    left: 10px
+  .next
+    right: 10px
+  .next, .back
+    top: 290px
+    z-index: 1000
+    position: absolute
+    display: none
+    text-decoration: none
+  &:hover
+    .next, .back
+      display: block
+
 .swiper-container, .swiper-slide
   width: 800px
   height: 600px
