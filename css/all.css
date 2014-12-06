@@ -427,47 +427,67 @@ th {
   padding: 0;
 }
 /* line 1, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+.swiper-container {
+  position: relative; }
+  /* line 3, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+  .swiper-container .back {
+    left: 10px; }
+  /* line 5, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+  .swiper-container .next {
+    right: 10px; }
+  /* line 7, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+  .swiper-container .next, .swiper-container .back {
+    top: 290px;
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    text-decoration: none; }
+  /* line 14, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+  .swiper-container:hover .next, .swiper-container:hover .back {
+    display: block; }
+
+/* line 17, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 .swiper-container, .swiper-slide {
   width: 800px;
   height: 600px; }
 
-/* line 5, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 21, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #title {
   background-image: url("/img/oj_boli/okladka.png"); }
 
-/* line 7, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 23, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_1_1 {
   background-image: url("/img/oj_boli/1_1.png"); }
 
-/* line 9, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 25, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_1_2 {
   background-image: url("/img/oj_boli/1_2.png"); }
 
-/* line 11, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 27, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_1_3 {
   background-image: url("/img/oj_boli/1_3.png"); }
 
-/* line 13, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 29, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_2_1 {
   background-image: url("/img/oj_boli/2_1.png"); }
 
-/* line 15, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 31, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_2_2 {
   background-image: url("/img/oj_boli/2_2.png"); }
 
-/* line 17, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 33, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_2_3 {
   background-image: url("/img/oj_boli/2_3.png"); }
 
-/* line 19, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 35, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_3_1 {
   background-image: url("/img/oj_boli/3_1.png"); }
 
-/* line 21, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 37, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_3_2 {
   background-image: url("/img/oj_boli/3_2.png"); }
 
-/* line 23, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
+/* line 39, /Users/manda/projects/kaczkami/source/css/_oj_boli.sass */
 #page_3_3 {
   background-image: url("/img/oj_boli/3_3.png"); }
 /* line 1, /Users/manda/projects/kaczkami/source/css/_stylesheet.sass */
