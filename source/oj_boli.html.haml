@@ -1,19 +1,42 @@
 .swiper-container
   .swiper-wrapper
     #page_1_1.swiper-slide
+      %audio{ src: 'audios/page_1_1.m4a', preload: 'auto' }
     #page_1_2.swiper-slide
+      %audio{ src: 'audios/page_1_2.m4a', preload: 'auto' }
     #page_1_3.swiper-slide
+      %audio{ src: 'audios/page_1_3.m4a', preload: 'auto' }
     #page_2_1.swiper-slide
+      %audio{ src: 'audios/page_2_1.m4a', preload: 'auto' }
     #page_2_2.swiper-slide
+      %audio{ src: 'audios/page_2_2.m4a', preload: 'auto' }
     #page_2_3.swiper-slide
+      %audio{ src: 'audios/page_2_3.m4a', preload: 'auto' }
     #page_3_1.swiper-slide
+      %audio{ src: 'audios/page_3_1.m4a', preload: 'auto' }
     #page_3_2.swiper-slide
+      %audio{ src: 'audios/page_3_2.m4a', preload: 'auto' }
     #page_3_3.swiper-slide
+      %audio{ src: 'audios/page_3_3.m4a', preload: 'auto' }
 
 :javascript
   $(function(){
+    var startAudio = function(swiper) {
+      $(swiper.activeSlide()).find('audio').each(function(i, audio) {
+        audio.play();
+      });
+    };
+    var stopAudio = function() {
+      $('audio').each(function(i, audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    };
     var mySwiper = $('.swiper-container').swiper({
       mode:'horizontal',
-      loop: true
+      loop: true,
+      onSwiperCreated: startAudio,
+      onSlideChangeStart: stopAudio,
+      onSlideChangeEnd: startAudio
     });
   });
