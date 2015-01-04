@@ -14,37 +14,63 @@
       <a class="next" href="#">></a>
       <div class='swiper-wrapper'>
         <div class='swiper-slide' id='page_1_1'>
-          <audio preload='auto' src='audios/page_1_1.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_1_1.m4a'>
+            <source src='audios/page_1_1.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_1_2'>
-          <audio preload='auto' src='audios/page_1_2.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_1_2.m4a'>
+            <source src='audios/page_1_2.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_1_3'>
-          <audio preload='auto' src='audios/page_1_3.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_1_3.m4a'>
+            <source src='audios/page_1_3.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_2_1'>
-          <audio preload='auto' src='audios/page_2_1.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_2_1.m4a'>
+            <source src='audios/page_2_1.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_2_2'>
-          <audio preload='auto' src='audios/page_2_2.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_2_2.m4a'>
+            <source src='audios/page_2_2.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_2_3'>
-          <audio preload='auto' src='audios/page_2_3.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_2_3.m4a'>
+            <source src='audios/page_2_3.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_3_1'>
-          <audio preload='auto' src='audios/page_3_1.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_3_1.m4a'>
+            <source src='audios/page_3_1.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_3_2'>
-          <audio preload='auto' src='audios/page_3_2.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_3_2.m4a'>
+            <source src='audios/page_3_2.ogg'>
+          </audio>
         </div>
         <div class='swiper-slide' id='page_3_3'>
-          <audio preload='auto' src='audios/page_3_3.mp3'></audio>
+          <audio preload='auto'>
+            <source src='audios/page_3_3.m4a'>
+            <source src='audios/page_3_3.ogg'>
+          </audio>
         </div>
       </div>
     </div>
     <script>
       $(function(){
-        $('audio')[0].play();
         var startAudio = function(swiper) {
           $(swiper.activeSlide()).find('audio').each(function(i, audio) {
             audio.play();
