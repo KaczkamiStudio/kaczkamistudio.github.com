@@ -44,6 +44,7 @@
     </div>
     <script>
       $(function(){
+        $('audio')[0].play();
         var startAudio = function(swiper) {
           $(swiper.activeSlide()).find('audio').each(function(i, audio) {
             audio.play();
