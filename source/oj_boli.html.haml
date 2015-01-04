@@ -1,6 +1,7 @@
 .swiper-container
   = link_to '<', '#', class: 'back'
   = link_to '>', '#', class: 'next'
+  = link_to 'play sound', '#', onclick: 'startAudio();', class: 'play'
   .swiper-wrapper
     #page_1_1.swiper-slide
       %audio{ preload: 'auto' }
@@ -40,30 +41,26 @@
         %source{ src: 'audios/page_3_3.ogg' }
 
 :javascript
-  $(function(){
-    var startAudio = function(swiper) {
-      $(swiper.activeSlide()).find('audio').each(function(i, audio) {
-        audio.play();
-      });
-    };
-    var stopAudio = function() {
-      $('audio').each(function(i, audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-    };
-    var mySwiper = $('.swiper-container').swiper({
-      mode:'horizontal',
-      loop: true,
-      keyboardControl: true,
-      onSwiperCreated: startAudio,
-      onSlideChangeStart: stopAudio,
-      onSlideChangeEnd: startAudio
+  var startAudio = function(swiper) {
+    $(mySwiper.activeSlide()).find('audio').each(function(i, audio) {
+      audio.play();
     });
-    $('a.next').click(function(event) {
-      mySwiper.swipeNext();
+  };
+  var stopAudio = function() {
+    $('audio').each(function(i, audio) {
+      audio.pause();
+      audio.currentTime = 0;
     });
-    $('a.back').click(function(event) {
-      mySwiper.swipePrev();
-    });
+  };
+  var mySwiper = $('.swiper-container').swiper({
+    mode:'horizontal',
+    loop: true,
+    keyboardControl: true,
+    onSlideChangeStart: stopAudio
+  });
+  $('a.next').click(function(event) {
+    mySwiper.swipeNext();
+  });
+  $('a.back').click(function(event) {
+    mySwiper.swipePrev();
   });
