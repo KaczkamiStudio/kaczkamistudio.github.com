@@ -12,82 +12,40 @@
     <div class='swiper-container'>
       <a class="back" href="#"><</a>
       <a class="next" href="#">></a>
-      <a onclick="startAudio();" class="play" href="#">play sound</a>
+      <a onclick="audio.start(currentSlideAudioSpan());" class="play" href="#">start sound</a>
+      <audio id='oj_boli_audio' preload='auto'>
+        <source src='audios/oj_boli.m4a'>
+        <source src='audios/oj_boli.ogg'>
+      </audio>
       <div class='swiper-wrapper'>
-        <div class='swiper-slide' id='page_1_1'>
-          <audio preload='auto'>
-            <source src='audios/page_1_1.m4a'>
-            <source src='audios/page_1_1.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_1_2'>
-          <audio preload='auto'>
-            <source src='audios/page_1_2.m4a'>
-            <source src='audios/page_1_2.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_1_3'>
-          <audio preload='auto'>
-            <source src='audios/page_1_3.m4a'>
-            <source src='audios/page_1_3.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_2_1'>
-          <audio preload='auto'>
-            <source src='audios/page_2_1.m4a'>
-            <source src='audios/page_2_1.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_2_2'>
-          <audio preload='auto'>
-            <source src='audios/page_2_2.m4a'>
-            <source src='audios/page_2_2.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_2_3'>
-          <audio preload='auto'>
-            <source src='audios/page_2_3.m4a'>
-            <source src='audios/page_2_3.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_3_1'>
-          <audio preload='auto'>
-            <source src='audios/page_3_1.m4a'>
-            <source src='audios/page_3_1.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_3_2'>
-          <audio preload='auto'>
-            <source src='audios/page_3_2.m4a'>
-            <source src='audios/page_3_2.ogg'>
-          </audio>
-        </div>
-        <div class='swiper-slide' id='page_3_3'>
-          <audio preload='auto'>
-            <source src='audios/page_3_3.m4a'>
-            <source src='audios/page_3_3.ogg'>
-          </audio>
-        </div>
+        <div class='swiper-slide' data-audioEnd='9' data-audioStart='0' id='page_1_1'></div>
+        <div class='swiper-slide' data-audioEnd='20' data-audioStart='10' id='page_1_2'></div>
+        <div class='swiper-slide' data-audioEnd='28' data-audioStart='21' id='page_1_3'></div>
+        <div class='swiper-slide' data-audioEnd='41' data-audioStart='30' id='page_2_1'></div>
+        <div class='swiper-slide' data-audioEnd='51' data-audioStart='43' id='page_2_2'></div>
+        <div class='swiper-slide' data-audioEnd='61' data-audioStart='53' id='page_2_3'></div>
+        <div class='swiper-slide' data-audioEnd='71' data-audioStart='63' id='page_3_1'></div>
+        <div class='swiper-slide' data-audioEnd='82' data-audioStart='72' id='page_3_2'></div>
+        <div class='swiper-slide' data-audioEnd='93' data-audioStart='83' id='page_3_3'></div>
       </div>
     </div>
     <script>
-      var startAudio = function(swiper) {
-        $(mySwiper.activeSlide()).find('audio').each(function(i, audio) {
-          audio.play();
-        });
-      };
-      var stopAudio = function() {
-        $('audio').each(function(i, audio) {
-          audio.pause();
-          audio.currentTime = 0;
-        });
-      };
+      var audio = new KaczkamiAudio('oj_boli_audio');
+      var currentSlideAudioSpan = function() {
+        return { from: mySwiper.activeSlide().data('audioStart'), to: mySwiper.activeSlide().data('audioEnd') }
+      }
       var mySwiper = $('.swiper-container').swiper({
         mode:'horizontal',
         loop: true,
         keyboardControl: true,
-        onSlideChangeStart: stopAudio
+        onSlideChangeStart: function() {
+          audio.stop();
+        },
+        onSlideChangeEnd: function() {
+          audio.start(currentSlideAudioSpan());
+        }
       });
+      audio.start(currentSlideAudioSpan());
       $('a.next').click(function(event) {
         mySwiper.swipeNext();
       });
