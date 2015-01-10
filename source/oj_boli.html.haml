@@ -1,63 +1,38 @@
 .swiper-container
   = link_to '<', '#', class: 'back'
   = link_to '>', '#', class: 'next'
-  = link_to 'play sound', '#', onclick: 'startAudio();', class: 'play'
+  = link_to 'start sound', '#', onclick: 'audio.start(currentSlideAudioSpan());', class: 'play'
+  %audio#oj_boli_audio{ preload: 'auto' }
+    %source{ src: 'audios/oj_boli.m4a' }
+    %source{ src: 'audios/oj_boli.ogg' }
   .swiper-wrapper
-    #page_1_1.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_1_1.m4a' }
-        %source{ src: 'audios/page_1_1.ogg' }
-    #page_1_2.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_1_2.m4a' }
-        %source{ src: 'audios/page_1_2.ogg' }
-    #page_1_3.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_1_3.m4a' }
-        %source{ src: 'audios/page_1_3.ogg' }
-    #page_2_1.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_2_1.m4a' }
-        %source{ src: 'audios/page_2_1.ogg' }
-    #page_2_2.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_2_2.m4a' }
-        %source{ src: 'audios/page_2_2.ogg' }
-    #page_2_3.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_2_3.m4a' }
-        %source{ src: 'audios/page_2_3.ogg' }
-    #page_3_1.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_3_1.m4a' }
-        %source{ src: 'audios/page_3_1.ogg' }
-    #page_3_2.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_3_2.m4a' }
-        %source{ src: 'audios/page_3_2.ogg' }
-    #page_3_3.swiper-slide
-      %audio{ preload: 'auto' }
-        %source{ src: 'audios/page_3_3.m4a' }
-        %source{ src: 'audios/page_3_3.ogg' }
+    #page_1_1.swiper-slide{ data: { audioStart: '0', audioEnd: '9' } }
+    #page_1_2.swiper-slide{ data: { audioStart: '10', audioEnd: '20' } }
+    #page_1_3.swiper-slide{ data: { audioStart: '21', audioEnd: '28' } }
+    #page_2_1.swiper-slide{ data: { audioStart: '30', audioEnd: '41' } }
+    #page_2_2.swiper-slide{ data: { audioStart: '43', audioEnd: '51' } }
+    #page_2_3.swiper-slide{ data: { audioStart: '53', audioEnd: '61' } }
+    #page_3_1.swiper-slide{ data: { audioStart: '63', audioEnd: '71' } }
+    #page_3_2.swiper-slide{ data: { audioStart: '72', audioEnd: '82' } }
+    #page_3_3.swiper-slide{ data: { audioStart: '83', audioEnd: '93' } }
 
 :javascript
-  var startAudio = function(swiper) {
-    $(mySwiper.activeSlide()).find('audio').each(function(i, audio) {
-      audio.play();
-    });
-  };
-  var stopAudio = function() {
-    $('audio').each(function(i, audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    });
-  };
+  var audio = new KaczkamiAudio('oj_boli_audio');
+  var currentSlideAudioSpan = function() {
+    return { from: mySwiper.activeSlide().data('audioStart'), to: mySwiper.activeSlide().data('audioEnd') }
+  }
   var mySwiper = $('.swiper-container').swiper({
     mode:'horizontal',
     loop: true,
     keyboardControl: true,
-    onSlideChangeStart: stopAudio
+    onSlideChangeStart: function() {
+      audio.stop();
+    },
+    onSlideChangeEnd: function() {
+      audio.start(currentSlideAudioSpan());
+    }
   });
+  audio.start(currentSlideAudioSpan());
   $('a.next').click(function(event) {
     mySwiper.swipeNext();
   });
