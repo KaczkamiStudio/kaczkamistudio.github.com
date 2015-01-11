@@ -1,7 +1,7 @@
 .swiper-container
   = link_to '<', '#', class: 'back'
   = link_to '>', '#', class: 'next'
-  = link_to 'start sound', '#', onclick: 'audio.start(currentSlideAudioSpan());', class: 'play'
+  = link_to 'start sound', '#', onclick: 'initializeAudio(); audio.start(currentSlideAudioSpan());', class: 'play'
   %audio#oj_boli_audio{ preload: 'auto' }
     %source{ src: 'audios/oj_boli.m4a' }
     %source{ src: 'audios/oj_boli.ogg' }
@@ -17,7 +17,10 @@
     #page_3_3.swiper-slide{ data: { audioStart: '83', audioEnd: '93' } }
 
 :javascript
-  var audio = new KaczkamiAudio('oj_boli_audio');
+  var audio;
+  var initializeAudio = function() {
+    audio = new KaczkamiAudio('oj_boli_audio');
+  }
   var currentSlideAudioSpan = function() {
     return { from: mySwiper.activeSlide().data('audioStart'), to: mySwiper.activeSlide().data('audioEnd') }
   }
@@ -32,7 +35,6 @@
       audio.start(currentSlideAudioSpan());
     }
   });
-  audio.start(currentSlideAudioSpan());
   $('a.next').click(function(event) {
     mySwiper.swipeNext();
   });
