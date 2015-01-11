@@ -12049,16 +12049,19 @@ function KaczkamiAudio(elementId) {
     self.from = span.from;
     self.to = span.to;
     self.audio.currentTime = self.from;
+    $('.console').append('<p>Started at ' + self.audio.currentTime + '</p>');
     self.audio.addEventListener("timeupdate", self.stopListener);
     self.audio.play();
   };
   self.stopListener = function() {
-    if (this.currentTime >= self.to) {
-      this.pause();
+    if (self.audio.currentTime >= self.to) {
+      $('.console').append('<p>Finished at ' + self.audio.currentTime + '</p>');
+      self.audio.pause();
     }
   }
   self.stop = function() {
     self.audio.removeEventListener("timeupdate", self.stopListener);
+    $('.console').append('<p>Finished at ' + self.audio.currentTime + '</p>');
     self.audio.pause();
   }
 }
