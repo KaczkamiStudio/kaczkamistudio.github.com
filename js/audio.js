@@ -4,6 +4,8 @@ function KaczkamiAudio(elementId) {
   self.from = 0;
   self.to = 0;
   self.mute = true;
+  self.audio.play();
+  self.audio.pause();
   self.toggle = function() {
     self.mute = !self.mute;
   };
