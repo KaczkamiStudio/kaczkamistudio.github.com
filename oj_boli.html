@@ -12,7 +12,6 @@
     <div class='swiper-container'>
       <a class="back" href="#"><</a>
       <a class="next" href="#">></a>
-      <a onclick="initializeAudio(); audio.start(currentSlideAudioSpan());" class="play" href="#">start sound</a>
       <audio id='oj_boli_audio' preload='auto'>
         <source src='audios/oj_boli.m4a'>
         <source src='audios/oj_boli.ogg'>
@@ -29,7 +28,9 @@
         <div class='swiper-slide' data-audioEnd='93' data-audioStart='83' id='page_3_3'></div>
       </div>
     </div>
-    <div class='console'></div>
+    <div class='console'>
+      <a onclick="initializeAudio(); audio.start(currentSlideAudioSpan());" class="play" href="#">start sound</a>
+    </div>
     <script>
       var audio;
       var initializeAudio = function() {
