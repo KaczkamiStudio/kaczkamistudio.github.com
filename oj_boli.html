@@ -12,7 +12,7 @@
     <div class='swiper-container'>
       <a class="back" href="#"><</a>
       <a class="next" href="#">></a>
-      <a onclick="audio.start(currentSlideAudioSpan());" class="play" href="#">start sound</a>
+      <a onclick="initializeAudio(); audio.start(currentSlideAudioSpan());" class="play" href="#">start sound</a>
       <audio id='oj_boli_audio' preload='auto'>
         <source src='audios/oj_boli.m4a'>
         <source src='audios/oj_boli.ogg'>
@@ -30,7 +30,10 @@
       </div>
     </div>
     <script>
-      var audio = new KaczkamiAudio('oj_boli_audio');
+      var audio;
+      var initializeAudio = function() {
+        audio = new KaczkamiAudio('oj_boli_audio');
+      }
       var currentSlideAudioSpan = function() {
         return { from: mySwiper.activeSlide().data('audioStart'), to: mySwiper.activeSlide().data('audioEnd') }
       }
@@ -45,7 +48,6 @@
           audio.start(currentSlideAudioSpan());
         }
       });
-      audio.start(currentSlideAudioSpan());
       $('a.next').click(function(event) {
         mySwiper.swipeNext();
       });
