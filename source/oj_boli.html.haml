@@ -1,7 +1,6 @@
 .swiper-container
   = link_to '<', '#', class: 'back'
   = link_to '>', '#', class: 'next'
-  = link_to 'start sound', '#', onclick: 'initializeAudio(); audio.start(currentSlideAudioSpan());', class: 'play'
   %audio#oj_boli_audio{ preload: 'auto' }
     %source{ src: 'audios/oj_boli.m4a' }
     %source{ src: 'audios/oj_boli.ogg' }
@@ -17,6 +16,7 @@
     #page_3_3.swiper-slide{ data: { audioStart: '83', audioEnd: '93' } }
 
 .console
+  = link_to 'start sound', '#', onclick: 'initializeAudio(); audio.start(currentSlideAudioSpan());', class: 'play'
 
 :javascript
   var audio;
