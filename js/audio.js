@@ -4,8 +4,9 @@ function KaczkamiAudio(elementId) {
   self.from = 0;
   self.to = 0;
   self.mute = true;
-  self.audio.play();
-  self.audio.pause();
+  self.audio.addEventListener('play', function() {
+    self.audio.currentTime = self.from;
+  });
   self.toggle = function() {
     self.mute = !self.mute;
   };
@@ -15,7 +16,6 @@ function KaczkamiAudio(elementId) {
   self.start = function(span) {
     self.from = span.from;
     self.to = span.to;
-    self.audio.currentTime = self.from;
     $('.console').append('<p>Started at ' + self.audio.currentTime + '</p>');
     self.audio.addEventListener("timeupdate", self.stopListener);
     self.audio.play();
