@@ -1,5 +1,5 @@
 !!!
-%html
+%html{ class: page_classes}
   %head
     %meta{charset: 'utf-8'}/
     %meta{content: 'chrome=1', 'http-equiv' => 'X-UA-Compatible'}/
@@ -8,6 +8,6 @@
     = javascript_include_tag 'all'
     %title Kaczkami Studio
 
-  %body
+  %body{ class: page_classes }
     = yield
     = javascript_include_tag 'track'
